@@ -1,8 +1,6 @@
 import os
 from enum import Enum, unique
-from typing import Iterable
 
-# from aws_cdk import RemovalPolicy, aws_rds as rds, aws_ec2 as ec2
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -84,15 +82,15 @@ class SubnetConfig(BaseSettings):
     def vpc_defaults(cls) -> list["SubnetConfig"]:
         return [
             cls(
-                name="Ingress",
+                name="ingress",
                 type=SubnetType.PUBLIC,
             ),
             cls(
-                name="Compute",
+                name="compute",
                 type=SubnetType.PRIVATE,
             ),
             cls(
-                name="Isolated",
+                name="isolated",
                 type=SubnetType.ISOLATED,
             ),
         ]
@@ -130,10 +128,12 @@ class VpcConfig(ResourceConfig):
 #         )
 #     )
 #     # TODO support non-postgres
-#     engine_version: rds.PostgresEngineVersion = rds.PostgresEngineVersion.VER_15_3
+#     engine_version: rds.PostgresEngineVersion = (
+# rds.PostgresEngineVersion.VER_15_3)
 #     removal_policy: RemovalPolicy = Field(default=RemovalPolicy.SNAPSHOT)
 #     deletion_protection: bool = Field(default=False)
-#     subnet_type: ec2.SubnetType = Field(default=ec2.SubnetType.PRIVATE_ISOLATED)
+# subnet_type: ec2.SubnetType = Field(
+#         default=ec2.SubnetType.PRIVATE_ISOLATED)
 
 
 # class BastionConfig(StackConfig):
@@ -142,7 +142,9 @@ class VpcConfig(ResourceConfig):
 #     ssh_port: int = 22
 #     bootstrap_script: str | None = None
 #     ip_allowlist: list[str] = Field(default_factory=list)
-#     ingress_confs: list[comps.IngressConfig] = Field(default_factory=list)
+# ingress_confs: list[
+#         comps.IngressConfig
+#     ] = Field(default_factory=list)
 
 
 # class FargateConfig(StackConfig):
@@ -151,7 +153,8 @@ class VpcConfig(ResourceConfig):
 #     public_access: bool = False
 #     scaling: comps.ScalingConfig = comps.ScalingConfig()
 #     ip_allowlist: list[str] = Field(default_factory=list)
-#     ingress_confs: list[comps.IngressConfig] = Field(default_factory=list)
+#     ingress_confs: list[comps.IngressConfig] = Field(
+# default_factory=list)
 #     domains: list[comps.DomainConfig] = Field(default_factory=list)
 
 #     external_http_port: int = 80
