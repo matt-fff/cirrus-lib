@@ -1,5 +1,5 @@
 [project]
-name = "cirrus-lib"
+name = "stratos-lib"
 version = "0.1.0"
 description = "Reusable common infrastructure constructs via Pulumi infrastructure-as-code."
 authors = [

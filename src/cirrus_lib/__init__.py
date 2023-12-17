@@ -1,2 +1,2 @@
 def hello():
-    return "Hello from cirrus-lib!"
+    return "Hello from stratos-lib!"

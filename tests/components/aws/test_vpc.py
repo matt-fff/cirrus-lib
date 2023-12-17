@@ -1,7 +1,7 @@
 import pulumi
 
-from cirrus_lib import configs as confs
-from cirrus_lib.components.aws.vpc import VpcComponent
+from stratos_lib import configs as confs
+from stratos_lib.components.aws.vpc import VpcComponent
 
 from ...fixtures import PulumiMocks
 

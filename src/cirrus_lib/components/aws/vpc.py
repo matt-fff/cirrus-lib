@@ -3,7 +3,7 @@ from typing import Generic, TypeVar
 import pulumi
 import pulumi_aws as aws
 
-from cirrus_lib import configs as confs
+from stratos_lib import configs as confs
 
 TConfig = TypeVar("TConfig", bound=confs.VpcConfig)
 
