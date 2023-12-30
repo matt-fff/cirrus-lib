@@ -1,6 +1,6 @@
 [project]
 name = "stratos-lib"
-version = "0.1.0"
+version = "0.1.1rc3"
 description = "Reusable common infrastructure constructs via Pulumi infrastructure-as-code."
 authors = [
     { name = "Matt White", email = "mail@matt-w.net" }
@@ -51,6 +51,14 @@ quality = { chain = [ "fmt:isort", "fmt:black", "lint:ruff", "lint:ruff-tests", 
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+include = [
+  "src/**/*.py",
+]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/stratos_lib" = "stratos_lib"
 
 [tool.pytest.ini_options]
 testpaths = [
